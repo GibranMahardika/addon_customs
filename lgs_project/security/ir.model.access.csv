@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lgs_area,access.lgs.area,lgs_project.model_lgs_area,lgs_project.group_lgs_user,1,1,0,0
+access_lgs_area,access.lgs.area,lgs_project.model_lgs_area,showroom.group_lgs_input,1,1,1,1
