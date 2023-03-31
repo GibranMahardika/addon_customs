@@ -3,9 +3,9 @@
 # from odoo import models, fields, api
 
 
-# class lgs_project(models.Model):
-#     _name = 'lgs_project.lgs_project'
-#     _description = 'lgs_project.lgs_project'
+# class custom_product(models.Model):
+#     _name = 'custom_product.custom_product'
+#     _description = 'custom_product.custom_product'
 
 #     name = fields.Char()
 #     value = fields.Integer()

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="lgs_pricelist_item_view_tree" model="ir.ui.view">
+        <field name="name">lgs_pricelist_item.view.tree</field>
+        <field name="model">lgs.pricelist.item</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="fixed_price" optional="show"  />
+                <field name="change_price" optional="hide" />
+                <field name="date_start" optional="hide" />
+                <field name="date_end" optional="hide" />
+                <field name="model_id" optional="show" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="lgs_pricelist_item_view_form" model="ir.ui.view">
+        <field name="name">lgs_pricelist_item.view.form</field>
+        <field name="model">lgs.pricelist.item</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group name="condition" string="Price Condition">
+
+                            <!-- fixed price -->
+                            <field name="is_fixed_price"
+                                attrs="{'invisible': [('is_changed_price', '=', True)] }" />
+                            <label for="is_fixed_price" string="" />
+                            <div class="o_address_format">
+                                <field name="fixed_price" placeholder="Facebook"
+                                    class="o_address_city"
+                                    attrs="{'invisible': [('is_fixed_price', '=', False)] }" />
+                            </div>
+
+                            <field name="is_changed_price"
+                                attrs="{'invisible': [('is_fixed_price', '!=', False)] }" />
+                            <label for="is_changed_price" string="" />
+                            <div class="o_address_format">
+                                <field name="change_price" placeholder="Facebook"
+                                    class="o_address_city"
+                                    attrs="{'invisible': [('is_changed_price', '=', False)] }" />
+                            </div>
+                            <label for="periode" string="Expired Date"
+                                attrs="{'invisible': [('is_changed_price', '=', False)] }" />
+                            <div class="o_address_format"
+                                attrs="{'invisible': [('is_changed_price', '=', False)] }">
+                                <field name="periode" invisible="1" />
+                                <field name="date_start" placeholder="Start Date"
+                                    class="o_address_city" />
+                                <field name="date_end" placeholder="End Date" class="o_address_city" />
+                            </div>
+
+                        </group>
+                        <group name="" string="">
+                            <field name="apply_on" />
+                            <field name="currency_id" />
+                            <field name="company_id" />
+                            <field name="model_id" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>
