@@ -8,3 +8,7 @@ class fleetVehiclesModel(models.Model):
     
     total_wheel = fields.Integer(string="Wheel Number", tracking=True, required=True)
     total_weight = fields.Integer(string="Total Weight", tracking=True, required=True)
+    weight_unit = fields.Selection([
+        ('kg','KG'),
+        ('ton','TON'),
+        ], tracking=True, required=True)

@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="fleet_vehicle_model_lgs_view_form" model="ir.ui.view">
+        <field name="name">fleet_vehicle_model_lgs.view.form</field>
+        <field name="model">fleet.vehicle.model</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_model_view_form" />
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//page[@name='information']" position="inside">
+                    <group name="wheels" string="Wheels"
+                        attrs="{'invisible': [('vehicle_type', '!=', 'car')]}">
+                        <group name="name" string="string">
+                            <field name="total_wheel" />
 
-    
+                            <label for="total_weight" attrs="{'invisible': [('vehicle_type', '!=', 'car')]}"/>
+                            <div class="o_row" attrs="{'invisible': [('vehicle_type', '!=', 'car')]}">
+                                <field name="total_weight" modifiers="{}"/>
+                                <field name="weight_unit" />
+                            </div>
+
+                        </group>
+                    </group>
+                </xpath>
+            </data>
+        </field>
+    </record>
 
 </odoo>

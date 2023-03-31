@@ -24,22 +24,6 @@
         sequence="10" />
 
     <menuitem
-        id="fleet_sub_main_menu"
-        name="Fleet"
-        action="fleet.fleet_vehicle_action"
-        groups="lgs_project.group_lgs_user"
-        parent="fleet_main_menu"
-        sequence="10" />
-
-    <menuitem
-        id="fleet_vehicle_model_main_menu"
-        name="Vehicle Model"
-        action="fleet.fleet_vehicle_model_action"
-        groups="lgs_project.group_lgs_user"
-        parent="fleet_main_menu"
-        sequence="10" />
-
-    <menuitem
         id="hr_main_menu"
         name="Employee"
         action="hr.open_view_employee_list_my"
@@ -80,5 +64,20 @@
         parent="master_main_menu"
         sequence="3" />
 
+    <menuitem
+        id="fleet_sub_main_menu"
+        name="Fleet"
+        action="fleet.fleet_vehicle_action"
+        groups="lgs_project.group_lgs_user"
+        parent="fleet_main_menu"
+        sequence="10" />
+
+    <menuitem
+        id="fleet_vehicle_model_main_menu"
+        name="Vehicle Model"
+        action="fleet.fleet_vehicle_model_action"
+        groups="lgs_project.group_lgs_user"
+        parent="fleet_main_menu"
+        sequence="10" />
 
 </odoo>
