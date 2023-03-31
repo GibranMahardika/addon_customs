@@ -5,8 +5,8 @@
         <field name="name">lgs_area.view.tree</field>
         <field name="model">lgs.area</field>
         <field name="arch" type="xml">
-            <tree string="">
-                
+            <tree>
+                <field name="name" />
             </tree>
         </field>
     </record>
@@ -15,7 +15,7 @@
         <field name="name">lgs_area.view.form</field>
         <field name="model">lgs.area</field>
         <field name="arch" type="xml">
-            <form string="">
+            <form>
                 <sheet>
                     <group>
                         <group>

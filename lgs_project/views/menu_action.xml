@@ -2,13 +2,54 @@
 <odoo>
 
     <record id="lgs_area_action" model="ir.actions.act_window">
-        <field name="name">LGS Area Action</field>
+        <field name="name">Area</field>
         <field name="res_model">lgs.area</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
         <field name="help" type="html">
-            
+            <p class="o_view_nocontent_smiling_face">
+                No data yet!
+            </p>
+        </field>
+    </record>
+
+    <record id="lgs_pricelist_action" model="ir.actions.act_window">
+        <field name="name">Pricelist</field>
+        <field name="res_model">lgs.pricelist</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No data yet!
+            </p>
+        </field>
+    </record>
+
+    <record id="lgs_pricelist_item_action" model="ir.actions.act_window">
+        <field name="name">Pricelist Item</field>
+        <field name="res_model">lgs.pricelist.item</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No data yet!
+            </p>
+        </field>
+    </record>
+
+    <record id="lgs_pricelist_master_action" model="ir.actions.act_window">
+        <field name="name">Pricelist Master</field>
+        <field name="res_model">lgs.pricelist.master</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No data yet!
+            </p>
         </field>
     </record>
 

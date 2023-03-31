@@ -1,23 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- root / first layer menu -->
 
     <menuitem
         id="lgs_root_menu"
         name="LGS"
-        sequence="1"/>
+        groups="lgs_project.group_lgs_input"
+        sequence="1" />
 
+    <!-- second layer menu -->
     <menuitem
         id="master_main_menu"
         name="Master"
         groups="lgs_project.group_lgs_input"
         parent="lgs_root_menu"
-        sequence="10"/>
+        sequence="10" />
+
+    <menuitem
+        id="fleet_main_menu"
+        name="Fleet"
+        groups="lgs_project.group_lgs_user"
+        parent="lgs_root_menu"
+        sequence="10" />
+
+    <menuitem
+        id="fleet_sub_main_menu"
+        name="Fleet"
+        action="fleet.fleet_vehicle_action"
+        groups="lgs_project.group_lgs_user"
+        parent="fleet_main_menu"
+        sequence="10" />
+
+    <menuitem
+        id="fleet_vehicle_model_main_menu"
+        name="Vehicle Model"
+        action="fleet.fleet_vehicle_model_action"
+        groups="lgs_project.group_lgs_user"
+        parent="fleet_main_menu"
+        sequence="10" />
+
+    <menuitem
+        id="hr_main_menu"
+        name="Employee"
+        action="hr.open_view_employee_list_my"
+        groups="lgs_project.group_lgs_user"
+        parent="lgs_root_menu"
+        sequence="10" />
+
+    <!-- third layer menu -->
     <menuitem
         id="lgs_area_menu"
         name="Area"
-        action="lgs_area_action"
+        action="lgs_project.lgs_area_action"
         groups="lgs_project.group_lgs_input"
         parent="master_main_menu"
-        sequence="1"/>
+        sequence="1" />
+
+    <menuitem
+        id="lgs_pricelist_menu"
+        name="Pricelist"
+        action="lgs_project.lgs_pricelist_action"
+        groups="lgs_project.group_lgs_input"
+        parent="master_main_menu"
+        sequence="1" />
+
+    <menuitem
+        id="lgs_pricelist_item_menu"
+        name="Pricelist Item"
+        action="lgs_project.lgs_pricelist_item_action"
+        groups="lgs_project.group_lgs_input"
+        parent="master_main_menu"
+        sequence="2" />
+
+    <menuitem
+        id="lgs_pricelist_master_menu"
+        name="Pricelist Master"
+        action="lgs_project.lgs_pricelist_master_action"
+        groups="lgs_project.group_lgs_input"
+        parent="master_main_menu"
+        sequence="3" />
+
 
 </odoo>
