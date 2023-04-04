@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record id="lgs_cdb_action" model="ir.actions.act_window">
+        <field name="name">CDB</field>
+        <field name="res_model">lgs.cdb</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No data yet!
+            </p>
+        </field>
+    </record>
+
     <record id="lgs_area_action" model="ir.actions.act_window">
         <field name="name">Area</field>
         <field name="res_model">lgs.area</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No data yet!
+            </p>
+        </field>
+    </record>
+
+    <record id="origin_type_action" model="ir.actions.act_window">
+        <field name="name">Origin Type</field>
+        <field name="res_model">origin.type</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
@@ -52,5 +78,6 @@
             </p>
         </field>
     </record>
+
 
 </odoo>

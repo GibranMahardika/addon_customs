@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="origin_type_view_tree" model="ir.ui.view">
+        <field name="name">origin_type.view.tree</field>
+        <field name="model">origin.type</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+                <field name="kode" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="origin_type_view_form" model="ir.ui.view">
+        <field name="name">origin_type.view.form</field>
+        <field name="model">origin.type</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="kode" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

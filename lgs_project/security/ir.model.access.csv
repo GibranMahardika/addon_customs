@@ -3,6 +3,9 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_lgs_area,access.lgs.area.user,lgs_project.model_lgs_area,lgs_project.group_lgs_user,1,1,0,0
 access_lgs_area,access.lgs.area.input,lgs_project.model_lgs_area,lgs_project.group_lgs_input,1,1,1,1
 
+access_origin_type,access.origin.type.user,lgs_project.model_origin_type,lgs_project.group_lgs_user,1,1,0,0
+access_origin_type,access.origin.type.input,lgs_project.model_origin_type,lgs_project.group_lgs_input,1,1,1,1
+
 access_lgs_fleet,access.lgs.fleet,lgs_project.model_lgs_fleet,lgs_project.group_lgs_user,1,0,0,0
 access_lgs_fleet,access.lgs.fleet,lgs_project.model_lgs_fleet,lgs_project.group_lgs_input,1,1,1,1
 
@@ -14,4 +17,7 @@ access_lgs_pricelist_item,lgs.pricelist.item.input,lgs_project.model_lgs_priceli
 
 access_lgs_pricelist_master,lgs.pricelist.master.user,lgs_project.model_lgs_pricelist_master,lgs_project.group_lgs_user,1,0,0,0
 access_lgs_pricelist_master,lgs.pricelist.master.input,lgs_project.model_lgs_pricelist_master,lgs_project.group_lgs_input,1,1,1,1
+
+access_lgs_cdb,lgs.cdb.user,lgs_project.model_lgs_cdb,lgs_project.group_lgs_user,1,0,0,0
+access_lgs_cdb,lgs.cdb.input,lgs_project.model_lgs_cdb,lgs_project.group_lgs_input,1,1,1,1
 

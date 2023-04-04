@@ -32,19 +32,27 @@
         'security/lgs_group_role.xml',
         'security/ir.model.access.csv',
 
+        
         'views/menu_action.xml',
         'views/menu_item.xml',
 
+        
         'views/fleet_vehicles.xml',
         'views/lgs_area.xml',
+        'views/origin_type.xml',
         
         'views/lgs_pricelist.xml',
         'views/lgs_pricelist_item.xml',
         'views/lgs_pricelist_master.xml',
-        
         # 'views/product_pricelist.xml',
+        
+        'views/lgs_cdb.xml',
+        
+        'data/data.xml'
+        
+        
         # 'views/lgs_cdb.xml',
-    ],
+    ],  
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',

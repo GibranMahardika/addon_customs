@@ -9,7 +9,7 @@ class lgsIdemitsu(models.Model):
         'res.company', string="Company", tracking=True, required=True)
 
     # tab Pricelist Reguler
-    area_id 
+    area_id
     # tab Pricelist Tanggerang
 
     # tab Pricelist Medan

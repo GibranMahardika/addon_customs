@@ -6,6 +6,12 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name" />
+                <field name="currency_id" />
+                <field name="company_id" />
+                <field name="origin_id" />
+                <field name="destination_id" />
+                <field name="model_id" />
+                <field name="price" />
             </tree>
         </field>
     </record>
@@ -23,7 +29,10 @@
                         <group>
                             <field name="currency_id" />
                             <field name="company_id" />
-                            <field name="area_id" />
+                            <field name="origin_id" />
+                            <field name="destination_id" />
+                            <field name="model_id" />
+                            <field name="price" />
                         </group>
                     </group>
                     <notebook>
@@ -31,10 +40,8 @@
                             <field name="item_ids">
                                 <tree>
                                     <field name="fixed_price" optional="show" />
-                                    <field name="change_price" optional="hide" />
                                     <field name="date_start" optional="hide" />
                                     <field name="date_end" optional="hide" />
-                                    <field name="model_id" optional="show" />
                                 </tree>
                             </field>
                         </page>

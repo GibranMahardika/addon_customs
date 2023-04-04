@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name" />
+                <field name="origin_id" />
             </tree>
         </field>
     </record>
@@ -20,6 +21,8 @@
                     <group>
                         <group>
                             <field name="name" />
+                            <field name="code" />
+                            <field name="origin_id" />
                         </group>
                     </group>
                 </sheet>

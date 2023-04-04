@@ -1,6 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    
+    <record id="lgs_cdb_view_tree" model="ir.ui.view">
+        <field name="name">lgs_cdb.view.tree</field>
+        <field name="model">lgs.cdb</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+                <field name="destination_id" />
+                <field name="origin" />
+                <field name="company_id" />
+                <field name="currency_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="lgs_cdb_view_form" model="ir.ui.view">
+        <field name="name">lgs_cdb.view.form</field>
+        <field name="model">lgs.cdb</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button id="button_sale_order" name="button_sale_order" string="Order"
+                        class="btn-primary"
+                        groups="lgs_project.group_lgs_user"
+                        type="object" attrs="{'invisible':[('state','!=','order')]}" />
+
+                    <button id="button_draft" name="button_draft" string="Draft"
+                        class="btn-primary"
+                        groups="lgs_project.group_lgs_user"
+                        type="object"
+                        attrs="{'invisible':[('state','!=','draft')]}" />
+
+                    <!--
+                    attrs="{'invisible':['|',('state','in',('reject','draft','approve1')),('id','=',False)]}"-->
+
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="draft,order" />
+                </header>
+                <sheet>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" attrs="{'readonly': [('id', '!=', False)] }" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="destination_id" />
+                            <field name="origin" />
+                            <field name="company_id" />
+                            <field name="currency_id" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="vehicles" string="Vehicles">
+                            <group>
+                                <field name="model_ids">
+                                    <tree>
+                                        <field name="active" invisible="1"
+                                            modifiers="{&quot;column_invisible&quot;: true}" />
+                                        <field name="license_plate" readonly="1"
+                                            modifiers="{&quot;readonly&quot;: true}" />
+                                        <field name="model_id" widget="many2one_avatar" readonly="1"
+                                            on_change="1" can_create="true" can_write="true"
+                                            modifiers="{&quot;readonly&quot;: true, &quot;required&quot;: true}" />
+                                        <field name="manager_id" optional="hide" can_create="true"
+                                            can_write="true" modifiers="{}" />
+                                        <field name="driver_id" widget="many2one_avatar"
+                                            readonly="1" can_create="true" can_write="true"
+                                            modifiers="{&quot;readonly&quot;: true}" />
+                                        <field name="future_driver_id" widget="many2one_avatar"
+                                            readonly="1" can_create="true" can_write="true"
+                                            modifiers="{&quot;readonly&quot;: true}" />
+                                        <field name="log_drivers" invisible="1"
+                                            modifiers="{&quot;column_invisible&quot;: true}" />
+                                        <field name="vin_sn" readonly="1" optional="hide"
+                                            modifiers="{&quot;readonly&quot;: true}" />
+                                        <field name="co2" string="CO2 Emissions g/km"
+                                            optional="hide" readonly="1"
+                                            modifiers="{&quot;readonly&quot;: true}" />
+                                        <field name="acquisition_date" readonly="1"
+                                            modifiers="{&quot;readonly&quot;: true}" />
+                                        <field name="tag_ids" widget="many2many_tags"
+                                            options="{'color_field': 'color'}" readonly="1"
+                                            can_create="true" can_write="true"
+                                            modifiers="{&quot;readonly&quot;: true}" optional="hide" />
+                                        <field name="state_id" widget="badge" readonly="1"
+                                            optional="hide" can_create="true" can_write="true"
+                                            modifiers="{&quot;readonly&quot;: true}" />
+                                        <field name="contract_renewal_due_soon" invisible="1"
+                                            modifiers="{&quot;readonly&quot;: true, &quot;column_invisible&quot;: true}" />
+                                        <field name="contract_renewal_overdue" invisible="1"
+                                            modifiers="{&quot;readonly&quot;: true, &quot;column_invisible&quot;: true}" />
+                                        <field name="contract_renewal_total" invisible="1"
+                                            modifiers="{&quot;readonly&quot;: true, &quot;column_invisible&quot;: true}" />
+                                        <field name="contract_state" widget="badge"
+                                            decoration-info="contract_state == 'open'"
+                                            decoration-danger="contract_state == 'expired'"
+                                            optional="hide" modifiers="{&quot;readonly&quot;: true}" />
+                                        <field name="activity_exception_decoration"
+                                            widget="activity_exception"
+                                            modifiers="{&quot;readonly&quot;: true}" />
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <page name="pricelist" string="Pricelist">
+                            <group>
+                                <field name="pricelist_ids">
+                                    <tree>
+                                        <field name="name" />
+                                        <field name="currency_id" />
+                                        <field name="company_id" />
+                                        <field name="origin_id" />
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <!-- <page name="price_item" string="Price Item">
+                            <group>
+                                <field name="price_item_ids">
+                                    <tree>
+                                        <field name="company_id" optional="show" />
+                                        <field name="fixed_price" optional="show" />
+                                        <field name="date_start" optional="hide" />
+                                        <field name="date_end" optional="hide" />
+                                        <field name="model_id" optional="show" />
+                                    </tree>
+                                </field>
+                            </group>
+                        </page> -->
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
 </odoo>

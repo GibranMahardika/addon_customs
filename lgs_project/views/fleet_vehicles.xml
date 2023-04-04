@@ -7,14 +7,15 @@
         <field name="arch" type="xml">
             <data>
                 <xpath expr="//page[@name='information']" position="inside">
-                    <group name="wheels" string="Wheels"
-                        attrs="{'invisible': [('vehicle_type', '!=', 'car')]}">
-                        <group name="name" string="string">
+                    <group name="wheels" string="Wheels">
+                        <group>
                             <field name="total_wheel" />
-
-                            <label for="total_weight" attrs="{'invisible': [('vehicle_type', '!=', 'car')]}"/>
-                            <div class="o_row" attrs="{'invisible': [('vehicle_type', '!=', 'car')]}">
-                                <field name="total_weight" modifiers="{}"/>
+                            
+                            <label for="total_weight"
+                                attrs="{'invisible': [('vehicle_type', '!=', 'car')]}" />
+                            <div class="o_row"
+                                attrs="{'invisible': [('vehicle_type', '!=', 'car')]}">
+                                <field name="total_weight" modifiers="{}" />
                                 <field name="weight_unit" />
                             </div>
 
