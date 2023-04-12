@@ -1,33 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="lgs_fleet_view_form" model="ir.ui.view">
-        <field name="name">lgs_fleet.view.form</field>
-        <field name="model">lgs.fleet</field>
-        <field name="arch" type="xml">
-            <form string="">
-                <sheet>
-                    <group>
-                        
-                        <field name="model_id" />
-                        <field name="license_plate" />
-                        <field name="tag_ids" />
-
-                        <group name="driver" string="Driver">
-                            <field name="driver_id" />
-                            <field name="driver_next_id" />
-                            <field name="assignment_date" />
-                        </group>
-                        <group name="vehicle" string="Vehicle">
-                            <field name="chasis_number" />
-                            <field name="manager_id" />
-                            <field name="location" />
-                            <field name="company_id" />
-                        </group>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
-
 </odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="menu_pricelist_lgs_report" model="ir.actions.report">
+        <field name="name">PDF Pricelist LGS</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sale.pricelist_lgs_detail</field>
+        <field name="report_file">sale.pricelist_lgs_detail</field>
+        <field name="binding_model_id" ref="model_lgs_pricelist" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- <report
+        id="menu_report_pricelist_detail"
+        model="lgs.pricelist"
+        string="LGS Pricelist Detail"
+        report-type="qweb-pdf"
+        name="lgs_project.pricelist_lgs_detail"
+        file="lgs_project.pricelist_lgs_detail"
+    /> -->
+</odoo>

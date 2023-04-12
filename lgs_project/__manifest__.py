@@ -25,34 +25,36 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'mail', 'fleet', 'hr'],
+    'depends': ['base', 'sale', 'mail', 'fleet', 'hr', 'report_xlsx', 'stock', 'account'],
 
     # always loaded
     'data': [
         'security/lgs_group_role.xml',
         'security/ir.model.access.csv',
 
-        
         'views/menu_action.xml',
         'views/menu_item.xml',
 
-        
+        'views/sale_order.xml',
         'views/fleet_vehicles.xml',
+
         'views/lgs_area.xml',
         'views/origin_type.xml',
-        
+
         'views/lgs_pricelist.xml',
-        'views/lgs_pricelist_item.xml',
-        'views/lgs_pricelist_master.xml',
-        # 'views/product_pricelist.xml',
-        
         'views/lgs_cdb.xml',
         
-        'data/data.xml'
-        
-        
+        'views/product_template.xml',
+        'views/account_move.xml',
+
+        'reports/report.xml',
+        'reports/report_pricelist_lgs_template.xml',
+
+        'data/data.xml',
+
+
         # 'views/lgs_cdb.xml',
-    ],  
+    ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',

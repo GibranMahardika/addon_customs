@@ -17,26 +17,32 @@ class lgsCDB(models.Model):
     destination_id = fields.Many2one(
         'lgs.area', string="Destination", tracking=True, required=True)
 
-    origin = fields.Char(string="Origin", tracking=True,
-                         related='destination_id.code')
+    origin_id = fields.Many2one(
+        'lgs.area', string="Origin", tracking=True, required=True)
 
-    company_id = fields.Many2one(
-        'res.company', string="Company", tracking=True)
+    customer_id = fields.Many2one(
+        'res.partner', string="Customer", tracking=True, required=True)
 
     currency_id = fields.Many2one('res.currency', string='Currency',
                                   default=_get_default_currency_id, tracking=True, required=True)
-
-    pricelist_ids = fields.One2many('lgs.pricelist', 'cdb_id', tracking=True)
-
-    # tab jenis kendaraan
-
-    # fleet.vehicle.model
-    model_ids = fields.One2many('fleet.vehicle', 'cdb_id')
 
     state = fields.Selection(selection=[('draft', 'Draft'),
                                         ('order', 'Sale Order'),
                                         ('reject', 'Reject')],
                              tracking=True, default='draft')
+
+    destination_id = fields.Many2one(
+        'lgs.area', string="Destination", tracking=True)
+
+    model_id = fields.Many2one(
+        'fleet.vehicle.model', string="Vehicle Model", tracking=True)
+
+    price = fields.Float(string="Price", tracking=True)
+
+    # connector
+    pricelist_ids = fields.One2many('lgs.pricelist', 'cdb_id', tracking=True)
+
+    model_ids = fields.One2many('fleet.vehicle', 'cdb_id')
 
     def button_draft(self):
         message = 'State on Draft'

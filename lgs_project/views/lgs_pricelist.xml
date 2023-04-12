@@ -7,7 +7,7 @@
             <tree>
                 <field name="name" />
                 <field name="currency_id" />
-                <field name="company_id" />
+                <field name="customer_id" />
                 <field name="origin_id" />
                 <field name="destination_id" />
                 <field name="model_id" />
@@ -21,32 +21,76 @@
         <field name="model">lgs.pricelist</field>
         <field name="arch" type="xml">
             <form string="">
+                <!-- <header>
+                    <button id="button_sale_order" name="button_sale_order" string="Order"
+                        class="btn-primary"
+                        groups="lgs_project.group_lgs_user"
+                        type="object" attrs="{'invisible':[('state','!=','draft')]}" />
+
+                    <button id="button_draft" name="button_draft" string="Draft"
+                        class="btn-primary"
+                        groups="lgs_project.group_lgs_user"
+                        type="object"
+                        attrs="{'invisible':[('state','!=','reject')]}" />
+
+                    <button id="button_reject" name="button_reject" string="Reject"
+                        class="btn-danger"
+                        groups="lgs_project.group_lgs_user"
+                        type="object"
+                        attrs="{'invisible':[('state','!=','draft')]}" />
+
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="draft,order" />
+                </header> -->
                 <sheet>
-                    <h1>
-                        <field name="name" />
-                    </h1>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="so_name" attrs="{'readonly': [('id', '!=', False)] }" />
+                        </h1>
+                    </div>
                     <group>
+                        <h5>
+                            <b>
+                                <field name="name" />
+                            </b>
+                        </h5>
+                        <separator />
                         <group>
-                            <field name="currency_id" />
-                            <field name="company_id" />
+                            <field name="customer_id" />
                             <field name="origin_id" />
                             <field name="destination_id" />
+                            <field name="currency_id" />
+                        </group>
+                        <group>
+
                             <field name="model_id" />
                             <field name="price" />
+
+                            <label for="type_pengiriman" />
+                            <div class="o_address_format">
+                                <field name="type_pengiriman" widget="radio" />
+
+                                <field name="sd_product_id" placeholder="Single Drop"
+                                    class="o_address_street"
+                                    attrs="{'invisible': ['|', ('type_pengiriman', '!=', 'sd'), ('type_pengiriman', '=', True)] }" />
+
+                                <field name="md_product_id" placeholder="Multi Drop"
+                                    class="o_address_street"
+                                    attrs="{'invisible': ['|', ('type_pengiriman', '!=', 'md'), ('type_pengiriman', '=', True)] }" />
+                            </div>
+
                         </group>
                     </group>
                     <notebook>
-                        <page name="price_rules" string="Price Rules">
-                            <field name="item_ids">
-                                <tree>
-                                    <field name="fixed_price" optional="show" />
-                                    <field name="date_start" optional="hide" />
-                                    <field name="date_end" optional="hide" />
-                                </tree>
-                            </field>
+                        <page name="product" string="Product">
+                            
                         </page>
                     </notebook>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
             </form>
         </field>
     </record>

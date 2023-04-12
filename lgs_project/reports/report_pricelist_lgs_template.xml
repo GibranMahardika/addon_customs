@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- <template id="pricelist_lgs_detail">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.basic_layout">
+                <div class="page">
+                    <div class="oe_structure" />
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <table class="table table-condensed"
+                                style="border:3px solid black !important;">
+                                <tr>
+                                    <td width="40%">
+                                        <p style="text-align:center;padding-top:10px;">
+                                            <img t.if="not o.image"
+    t-att-src="C:\all_project\all_odoo_project\all_odoo_15\odoo_15.0_test\addon_customs\lgs_project\static\test_1.jpg"
+                                                height="140" border="1" width="120" />
+                                        </p>
+                                    </td>
+                                    <td width="60%">
+                                        <table>
+                                            <tr>
+                                                <td colspan="3" class="text-center">
+                                                    <span t-field="o.name"></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span>
+                                                        <strong>Age:</strong>
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span>:</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span>
+                                                        <strong>
+                                                            Reference:
+                                                        </strong>
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span>:</span>
+                                                </td>
+                                                <td>
+                                                    <span t-field="o.reference"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                    <br/>
+                    
+                    <t t-if="o.order_line">
+                        
+                    </t>
+
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <template name="pricelist_lgs_detail">
+        <t t-call="web.html_container" >
+            <t t-foreach="docs" t-as="o">
+                <div class="header" style="padding-top:50%;">
+                    <table style="border:0px;" width="100%">
+                        <tr style="padding:10px;">
+                            <td style="padding:2px;" width="50%;"><span t-field="o.partner_id"/></td>
+                            <td style="padding:2px; text-align:right;" ><span t-field="o.date_order"/></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="page">
+                    <style>
+                        table, tr, td {
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                        }
+                    </style>
+                    <table width="100%;">
+                        <tr>
+                            <td width="40%"><span>Product</span></td>
+                            <td width="10%"><span>Quantity</span></td>
+                            <td width="10%"><span>UoM</span></td>
+                            <td width="20%"><span>Price</span></td>
+                            <td width="20%"><span>Sub Total</span></td>
+                        </tr>
+                        <t t-foreach="o.order_line" t-as="ol">
+                            <tr>
+                                <td width="40%"><span t-field="ol.product_id.display_name" /></td>
+                                <td width="10%"><span t-field="ol.quantity" /></td>
+                                <td width="10%"><span t-field="ol.product_uom.name" /></td>
+                                <td width="20%"><span t-field="ol.price_unit" /></td>
+                                <td width="20%"><span t-field="ol.price_subtotal" /></td>
+                            </tr>
+                        </t>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template> -->
+
+    <template id="sale_report_inherit" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@id='informations']" position="inside">
+            <div class="row mt32 mb32" id="test_inherit">
+                <div t-if="doc.origin_id" class="col-auto col-3 mw-100 mb-2">
+                    <strong>Origin:</strong>
+                    <p class="m-0" t-field="doc.origin_id" />
+                </div>
+                <div t-if="doc.destination_id" class="col-auto col-3 mw-100 mb-2">
+                    <strong>Destination:</strong>
+                    <p class="m-0" t-field="doc.destination_id" />
+                </div>
+                <div t-if="doc.model_id" class="col-auto col-3 mw-100 mb-2">
+                    <strong>Vehicle Model:</strong>
+                    <p class="m-0" t-field="doc.model_id" />
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

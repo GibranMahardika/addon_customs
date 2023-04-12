@@ -26,7 +26,7 @@
                             <field name="is_fixed_price" />
                             <label for="is_fixed_price" string="" />
                             <div class="o_address_format">
-                                <field name="fixed_price" placeholder="Facebook"
+                                <field name="fixed_price" placeholder="Fixed Price"
                                     class="o_address_city"
                                     attrs="{'invisible': [('is_fixed_price', '=', False)] }" />
                             </div>

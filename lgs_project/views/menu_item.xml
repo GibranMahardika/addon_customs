@@ -65,22 +65,6 @@
         parent="master_main_menu"
         sequence="2" />
 
-    <!-- <menuitem
-        id="lgs_pricelist_item_sub_menu"
-        name="Pricelist LGS Item"
-        action="lgs_project.lgs_pricelist_item_action"
-        groups="lgs_project.group_lgs_input"
-        parent="master_main_menu"
-        sequence="2" />
-
-    <menuitem
-        id="lgs_pricelist_master_sub_menu"
-        name="Pricelist LGS Master"
-        action="lgs_project.lgs_pricelist_master_action"
-        groups="lgs_project.group_lgs_input"
-        parent="master_main_menu"
-        sequence="2" /> -->
-
     <menuitem
         id="lgs_pricelist_master_sub_menu"
         name="Pricelist"
@@ -120,6 +104,14 @@
         id="sales_sub_main_menu"
         name="Sales"
         action="sale.action_orders"
+        groups="lgs_project.group_lgs_user"
+        parent="sales_main_menu"
+        sequence="10" />
+
+    <menuitem
+        id="quotation_sub_main_menu"
+        name="Quotations"
+        action="sale.action_quotations_with_onboarding"
         groups="lgs_project.group_lgs_user"
         parent="sales_main_menu"
         sequence="10" />

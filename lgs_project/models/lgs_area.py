@@ -10,3 +10,4 @@ class lgsArea(models.Model):
     name = fields.Char(string="Name", tracking=True)
     code = fields.Char(string="Kode", tracking=True, related='origin_id.name', store=True)
     origin_id = fields.Many2one('origin.type', string="Origin", tracking=True)
+    
