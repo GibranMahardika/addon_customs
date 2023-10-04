@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <report
+            id="report_work_order"
+            string="Work Order"
+            model="work.order"
+            report_type="qweb-pdf"
+            file="booking_order.work_order"
+            name="booking_order.work_order_report"
+        />
+
+        <template id="work_order_report">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="doc">
+                    <style>
+                        .page {
+                        size: A4 landscape;
+                        margin: 1cm;
+                        }
+
+                        .table-condensed {
+                        width: 100%;
+                        border-collapse: collapse;
+                        }
+
+                        .table-condensed td, .table-condensed th {
+                        border: 1px solid #ddd;
+                        padding: 8px;
+                        text-align: left;
+                        }
+
+                        h4, [t-esc] {
+                        display: inline-block;
+                        margin: 0;
+                        }
+
+                        textarea.full-width {
+                        width: 100%;
+                        box-sizing: border-box;
+                        }
+                    </style>
+
+                    <div class="page">
+                        <h2>
+                            <span t-field="doc.name" />
+                        </h2>
+                        <table class="table table-condensed">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4>Team Name : </h4>
+                                        <t t-esc="doc.service_team_id.name" />
+                                    </td>
+                                    <td>
+                                        <h4>Customer : </h4>
+                                        <t t-esc="doc.bo_ref_id.partner_id.name" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Booking Order Ref : </h4>
+                                        <t t-esc="doc.bo_ref_id.name" />
+                                    </td>
+                                    <td>
+                                        <h4>Date : </h4><t t-esc="doc.date_start" /> - <t
+                                            t-esc="doc.date_end" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <t t-if="doc.notes">
+                            <h3>Notes</h3>
+                            <textarea class="full-width">
+                                <t t-esc="doc.notes"  />
+                            </textarea>
+                        </t>
+                        <!-- Horizontal Line -->
+                        <hr />
+                        <h3>Signature</h3>
+                        <textarea class="full-width" />
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+
+</odoo>

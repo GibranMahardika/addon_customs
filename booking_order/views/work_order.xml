@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+
+        <record id="work_order_view_tree" model="ir.ui.view">
+            <field name="name">work_order.view.tree</field>
+            <field name="model">work.order</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name" />
+                    <field name="bo_ref_id" />
+                    <field name="service_team_id" />
+                    <field name="team_leader_id" />
+                    <field name="team_members_ids" />
+                    <field name="start_plan" />
+                    <field name="end_plan" />
+                    <field name="date_start" />
+                    <field name="date_end" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="work_order_view_form" model="ir.ui.view">
+            <field name="name">work_order.view.form</field>
+            <field name="model">work.order</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <button id="button_start_work" name="action_start_work" string="Start Work"
+                            class="btn-primary"
+                            groups="booking_order.group_bo_manager"
+                            type="object" attrs="{'invisible':[('state','!=','pending')]}" />
+
+                        <button id="button_end_work" name="action_end_work" string="End Work"
+                            class="btn-primary"
+                            groups="booking_order.group_bo_manager"
+                            type="object" attrs="{'invisible':[('state','!=','progress')]}" />
+
+                        <button id="button_reset_work" name="action_reset_work" string="Reset"
+                            class="btn-primary"
+                            groups="booking_order.group_bo_manager"
+                            type="object" attrs="{'invisible':[('state','!=','progress')]}" />
+
+                        <button name="%(booking_order.cancel_work_order_wizard_action)d"
+                            string="Cancel"
+                            class="btn-secondary"
+                            groups="booking_order.group_bo_manager"
+                            type="action" states="pending,progress,done,cancel"/>
+
+                        <!-- <button id="button_cancel_work" name="action_cancel_work"
+                            string="Cancel"
+                            class="btn-secondary"
+                            groups="booking_order.group_bo_manager"
+                            type="object" attrs="{'invisible':[('state','=','cancel')]}" /> -->
+
+                        <field name="state" widget="statusbar"
+                            statusbar_visible="pending,progress,done,cancel" />
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" attrs="{'readonly': [('id', '!=', False)] }" />
+                            </h1>
+                        </div>
+                        <group>
+                            <group name="group_1">
+                                <field name="bo_ref_id" />
+                                <field name="service_team_id" />
+                                <field name="team_leader_id" />
+                                <field name="team_members_ids" widget="many2many_tags" />
+                            </group>
+                            <group name="group_2">
+                                <field name="start_plan" />
+                                <field name="end_plan" />
+                                <field name="date_start" />
+                                <field name="date_end" />
+                            </group>
+                            <group name="notes">
+                                <field name="notes" />
+                            </group>
+                        </group>
+                        <!-- <notebook>
+                            <page name="notes" string="Notes">
+                                <field name="notes" />
+                            </page>
+                        </notebook> -->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+
+    <record id="work_order_view_calendar" model="ir.ui.view">
+        <field name="name">work_order.view.calendar</field>
+        <field name="model">work.order</field>
+        <field name="arch" type="xml">
+            <calendar string="Work Order" date_start="start_plan" color="team_leader_id">
+                <field name="service_team_id" />
+            </calendar>
+        </field>
+    </record>
+
+    <record id="work_order_view_graph" model="ir.ui.view">
+        <field name="name">work_order.view.graph</field>
+        <field name="model">work.order</field>
+        <field name="arch" type="xml">
+            <graph string="Work Order" type="bar">
+                <field name="service_team_id" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="work_order_view_kanban" model="ir.ui.view">
+        <field name="name">work_order.view.kanban</field>
+        <field name="model">work.order</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_vignette">
+                            <div class="oe_kanban_icon">🛠️</div>
+                        </div>
+                        <div class="oe_kanban_details">
+                            <h4>
+                                <a type="open">
+                                    <field name="name" />
+                                </a>
+                            </h4>
+                            <ul>
+                                <li> Team: <field name="service_team_id" />
+                                </li>
+
+                                <li> Team Leader: <field name="team_leader_id" /> Team Member: <field
+                                        name="team_members_ids" />
+                                </li>
+                            </ul>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+</odoo>

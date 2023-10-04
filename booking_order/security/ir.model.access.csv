@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_service_team,access.service.team,booking_order.model_service_team,booking_order.group_bo_user,1,1,0,0
+access_service_team,access.service.team,booking_order.model_service_team,booking_order.group_bo_manager,1,1,1,1
+
+access_work_order,access.work.order,booking_order.model_work_order,booking_order.group_bo_user,1,1,0,0
+access_work_order,access.work.order,booking_order.model_work_order,booking_order.group_bo_manager,1,1,1,1
+
+access_cancel_work_order_wizard,access.cancel.work.order.wizard,booking_order.model_cancel_work_order_wizard,booking_order.group_bo_user,1,1,0,0
+access_cancel_work_order_wizard,access.cancel.work.order.wizard,booking_order.model_cancel_work_order_wizard,booking_order.group_bo_manager,1,1,1,1

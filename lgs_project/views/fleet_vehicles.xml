@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="fleet_vehicle_model_lgs_view_form" model="ir.ui.view">
+    <!-- <record id="fleet_vehicle_model_lgs_view_form" model="ir.ui.view">
         <field name="name">fleet_vehicle_model_lgs.view.form</field>
         <field name="model">fleet.vehicle.model</field>
         <field name="inherit_id" ref="fleet.fleet_vehicle_model_view_form" />
@@ -24,6 +24,6 @@
                 </xpath>
             </data>
         </field>
-    </record>
+    </record> -->
 
 </odoo>

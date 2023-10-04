@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="book_chapter_tree" model="ir.ui.view">
+        <field name="name">book_chapter.view.tree</field>
+        <field name="model">book.chapter</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="chap_name" />
+                <field name="keterangan" />
+                <field name="halaman" />
+                <field name="hal_extra" />
+                <field name="hal_extra_2" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="book_chapter_view_form" model="ir.ui.view">
+        <field name="name">book_chapter.view.form</field>
+        <field name="model">book.chapter</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="chap_name" />
+                            <field name="keterangan" />
+                            <field name="halaman" />
+                        </group>
+                        <group>
+                            <field name="hal_extra" />
+                            <field name="hal_extra_2" />
+                        </group>
+                    </group>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+</odoo>

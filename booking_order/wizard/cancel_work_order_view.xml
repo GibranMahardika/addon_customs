@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="cancel_work_order_wizard_view_form" model="ir.ui.view">
+        <field name="name">cancel_work_order_wizard.view.form</field>
+        <field name="model">cancel.work.order.wizard</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <group>
+                    <field name="cancellation_reason" />
+                </group>
+
+                <footer>
+                    <button
+                        name="action_cancel" string="Cancel Work Order" class="btn-primary"
+                        data-hotkey="q" type="object" />
+                    <button special="cancel" string="Discard" class="btn-secondary" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="cancel_work_order_wizard_action" model="ir.actions.act_window">
+        <field name="name">Cancel Work Order</field>
+        <field name="res_model">cancel.work.order.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

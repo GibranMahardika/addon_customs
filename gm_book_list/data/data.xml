@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <record id="book_list_sequence" model="ir.sequence">
+            <field name="name">Book List Sequence</field>
+            <field name="code">book.list.sequence</field>
+            <field name="prefix">BL/2023/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False" />
+        </record>
+        
+        <record id="book_category_sequence" model="ir.sequence">
+            <field name="name">Book Category Sequence</field>
+            <field name="code">book.category.sequence</field>
+            <field name="prefix">BC/2023/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False" />
+        </record>
+        
+        <record id="book_chapter_sequence" model="ir.sequence">
+            <field name="name">Book Chapter Sequence</field>
+            <field name="code">book.chapter.sequence</field>
+            <field name="prefix">BCH/2023/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False" />
+        </record>
+
+        
+    </data>
+
+
+</odoo>

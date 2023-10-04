@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <!-- action service team -->
+        <record id="action_service_team_list" model="ir.actions.act_window">
+            <field name="name">Daftar Service Team</field>
+            <field name="res_model">service.team</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Click to add a Service Team <p>klik tombol
+                    Create
+                        untuk bikin team baru</p>
+                </p>
+            </field>
+        </record>
+
+        <record id="booking_order_action" model="ir.actions.act_window">
+            <field name="name">Booking Order</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_is_booking_order': 1}</field>
+        </record>
+
+        <record id="work_order_action" model="ir.actions.act_window">
+            <field name="name">Work Order</field>
+            <field name="res_model">work.order</field>
+            <field name="view_mode">tree,form,calendar,graph,kanban</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    This is work order, please create one of them in Create button, on top of the
+                    left!
+                </p>
+            </field>
+        </record>
+
+    </data>
+
+
+</odoo>

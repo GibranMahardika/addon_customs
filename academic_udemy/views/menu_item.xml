@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <menuitem id="academic_0" name="Academic" sequence="1" />
+        <menuitem id="academic_1" name="Academic" sequence="1" parent="academic_0" />
+        <menuitem id="academic_course_menu" name="Course" sequence="1" parent="academic_1"
+            action="action_course_list" />
+        <menuitem id="academic_session_menu" name="Session" sequence="1" parent="academic_1"
+            action="action_session_list" />
+        <menuitem id="academic_attendee_menu" name="Attendee" sequence="1" parent="academic_1"
+            action="action_attendee_list" />
+
+    </data>
+
+
+</odoo>

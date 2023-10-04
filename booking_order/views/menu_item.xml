@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <menuitem
+            id="booking_order_root_menu"
+            name="Booking Order"
+            parent="sale.sale_menu_root"
+            groups="booking_order.group_bo_manager"
+            sequence="10" />
+
+        <menuitem
+            id="other_root_menu"
+            name="Other"
+            parent="sale.sale_menu_root"
+            groups="booking_order.group_bo_manager"
+            sequence="50" />
+
+        <menuitem
+            id="booking_order_menu"
+            name="Booking Order"
+            action="booking_order.booking_order_action"
+            groups="booking_order.group_bo_manager"
+            parent="booking_order_root_menu"
+            sequence="10" />
+
+        <menuitem
+            id="work_order_menu"
+            name="Work Order"
+            action="booking_order.work_order_action"
+            groups="booking_order.group_bo_manager"
+            parent="booking_order_root_menu"
+            sequence="10" />
+
+        <menuitem
+            id="service_team_menu"
+            name="Service Team"
+            action="action_service_team_list"
+            groups="booking_order.group_bo_manager"
+            parent="booking_order_root_menu"
+            sequence="10" />
+
+        <!-- Other Root Menu -->
+        <menuitem
+            id="cancel_work_order_menu"
+            name="Cancel Work Order"
+            action="booking_order.cancel_work_order_wizard_action"
+            groups="booking_order.group_bo_manager"
+            parent="other_root_menu"
+            sequence="10" />
+
+
+    </data>
+
+
+</odoo>

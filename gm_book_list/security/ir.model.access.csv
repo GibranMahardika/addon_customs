@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_book_list,access.book.list,gm_book_list.model_book_list,,1,1,1,1
+access_book_chapter,access.book.chapter,gm_book_list.model_book_chapter,,1,1,1,1
+access_book_category,access.book.category,gm_book_list.model_book_category,,1,1,1,1
+access_book_type,access.book.type,gm_book_list.model_book_type,,1,1,1,1

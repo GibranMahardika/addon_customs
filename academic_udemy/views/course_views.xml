@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <record id="academic_course_view_tree" model="ir.ui.view">
+            <field name="name">academic_course.view.tree</field>
+            <field name="model">academic.course</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name" />
+                    <field name="responsible_id" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="academic_course_view_form" model="ir.ui.view">
+            <field name="name">academic_course.view.form</field>
+            <field name="model">academic.course</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" string="Course Name" />
+                            <h1>
+                                <field name="name" />
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="responsible_id" />
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page name="description" string="Description">
+                                <field name="description" />
+                            </page>
+
+                            <page name="session" string="Session">
+                                <field name="session_ids">
+                                    <tree>
+                                        <field name="instructor_id" editable="bottom" />
+                                        <field name="name" />
+                                        <field name="start_date" />
+                                        <field name="duration" />
+                                        <field name="seats" />
+                                        <field name="active" />
+                                    </tree>
+
+                                    <form>
+                                        <group>
+                                            <field name="instructor_id" />
+                                            <field name="name" />
+                                            <field name="start_date" />
+                                            <field name="duration" />
+                                            <field name="seats" />
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+
+
+</odoo>
