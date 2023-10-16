@@ -35,24 +35,9 @@
             <field name="name">Daftar Attendee</field>
             <field name="res_model">academic.attendee</field>
             <field name="view_mode">tree,form</field>
-            <field name="domain">[('is_instructor','=',True)]</field>
             <field name="context">{}</field>
             <field name="help" type="html">
-                <p class="oe_view_nocontent_create"> Click to add a Session <p>klik tombol Create
-                    untuk bikin attendee baru</p>
-                </p>
-            </field>
-        </record>
-
-        <!-- action attendee -->
-        <record id="action_res_partner_list" model="ir.actions.act_window">
-            <field name="name">Daftar Attendee</field>
-            <field name="res_model">academic.attendee</field>
-            <field name="view_mode">tree,form</field>
-            <field name="domain">[]</field>
-            <field name="context">{}</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create"> Click to add a Session <p>klik tombol Create
+                <p class="oe_view_nocontent_create"> Click New to add an Attendee <p>klik tombol Create
                     untuk bikin attendee baru</p>
                 </p>
             </field>
@@ -63,6 +48,15 @@
             <field name="res_model">res.partner</field>
             <field name="view_mode">form</field>
             <field name="context">{'default_is_instructor': True}</field>
+        </record>
+
+        
+        <!-- action instructor -->
+        <record id="action_instructor_list" model="ir.actions.act_window">
+            <field name="name">Daftar Insructor</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_instructor":1}</field>
         </record>
 
     </data>

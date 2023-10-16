@@ -8,3 +8,4 @@ class Attendee(models.Model):
 
     session_id = fields.Many2one(comodel_name='academic.session', string="Session")
     attendee_id = fields.Many2one(comodel_name='res.partner', string="Attendence")
+    is_instructor = fields.Boolean("Is Instructor")

@@ -11,7 +11,8 @@
             action="action_session_list" />
         <menuitem id="academic_attendee_menu" name="Attendee" sequence="1" parent="academic_1"
             action="action_attendee_list" />
-
+        <menuitem id="academic_instructor_menu" name="Instructor" sequence="1" parent="academic_1"
+            action="action_instructor_list" />
     </data>
 
 
