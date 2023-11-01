@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sale_report_inherit_pivot_view" model="ir.ui.view">
+            <field name="name">sale_report.pivot.view.inherit</field>
+            <field name="model">sale.report</field>
+            <field name="inherit_id" ref="sale.view_order_product_pivot" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='team_id']" position="after">
+                    <field name="brand_id" type="row"/>            
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+
+</odoo>
+        
+        

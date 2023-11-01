@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gm_agro__accounting_operation_gm_agro__accounting_operation,gm_agro__accounting_operation.gm_agro__accounting_operation,model_gm_agro__accounting_operation_gm_agro__accounting_operation,base.group_user,1,1,1,1
