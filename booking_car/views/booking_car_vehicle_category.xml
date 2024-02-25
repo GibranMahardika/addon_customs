@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+        <record id="vehicle_category_view_tree" model="ir.ui.view">
+            <field name="name">vehicle_category_view_tree</field>
+            <field name="model">booking.car.vehicle.category</field>
+            <field name="arch" type="xml">
+                <tree string="vehicle_category_tree">
+                    <field name="name"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="vehicle_category_view_form" model="ir.ui.view">
+            <field name="name">vehicle_category_view_form</field>
+            <field name="model">booking.car.vehicle.category</field>
+            <field name="arch" type="xml">
+                <form string="vehicle_category_form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="active"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="vehicle_category_action" model="ir.actions.act_window">
+            <field name="name">Vehicle Category</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">booking.car.vehicle.category</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="vehicle_category_action_menu" name="Vehicle Category"
+                  parent="fleet.fleet_configuration"
+                  action="booking_car.vehicle_category_action"/>
+
+        <menuitem id="vehicle_category_menu_item"
+                  name="Vehicle Category"
+                  parent="booking_car.booking_car_configuration_category_menu_root"
+                  action="booking_car.vehicle_category_action"/>
+    </data>
+</odoo>

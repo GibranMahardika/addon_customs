@@ -1,0 +1,108 @@
+<odoo>
+    <data>
+        <!--    BOOKING CAR DRIVER      -->
+        <record id="booking_car_driver_view_tree" model="ir.ui.view">
+            <field name="name">booking_car_driver_view_tree</field>
+            <field name="model">booking.car.driver</field>
+            <field name="arch" type="xml">
+                <tree string="booking_car_driver_tree">
+                    <field name="active"/>
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="gender"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="booking_car_driver_view_form" model="ir.ui.view">
+            <field name="name">booking_car_driver_view_form</field>
+            <field name="model">booking.car.driver</field>
+            <field name="arch" type="xml">
+                <form string="booking_car_driver_form">
+                    <sheet>
+                        <group>
+                            <group string="Personal Data" name="personal">
+                                <field name="name"/>
+                                <field name="age"/>
+                                <field name="gender"/>
+                                <field name="email_address"/>
+                            </group>
+                            <group string="Additional Data" name="additional">
+                                <field name="active" invisible="1"/>
+                                <field name="phone"/>
+                                <field name="phone1"/>
+                                <field name="sim"/>
+                                <field name="company_id"/>
+                            </group>
+                            <group string="Other Data" name="other">
+                                <field name="other_info"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="booking_car_driver_action" model="ir.actions.act_window">
+            <field name="name">Driver</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">booking.car.driver</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+        </record>
+
+        <!--    BOOKING CAR DRIVER CEK STATUS       -->
+        <record id="booking_car_driver_cek_status_view_tree" model="ir.ui.view">
+            <field name="name">booking_car_driver_cek_status_view_tree</field>
+            <field name="model">booking.car.driver.cek.status</field>
+            <field name="arch" type="xml">
+                <tree string="booking_car_driver_tree">
+                    <field name="name"/>
+                    <field name="status_aktif"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="booking_car_driver_cek_status_view_form" model="ir.ui.view">
+            <field name="name">booking_car_driver_cek_status_view_form</field>
+            <field name="model">booking.car.driver.cek.status</field>
+            <field name="arch" type="xml">
+                <form string="booking_car_driver_form">
+                    <sheet>
+                        <group>
+                            <group string="Data Diri" name="data_diri">
+                                <field name="name" groups="booking_car.group_driver"/>
+                                <field name="status_aktif" groups="booking_car.group_driver"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="booking_car_driver_cek_status_action" model="ir.actions.act_window">
+            <field name="name">Cek Status Driver</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">booking.car.driver.cek.status</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{'default category_id':'Driver'}</field>
+        </record>
+
+        <menuitem id="booking_car_driver_action_menu"
+                  name="Driver"
+                  groups="booking_car.group_driver,booking_car.group_admin"
+                  parent="booking_car.booking_car_configuration_category_menu_root"
+                  action="booking_car_driver_action"/>
+
+        <menuitem id="booking_car_driver_cek_status_root_menu"
+                  name="Cek Status"
+                  parent="booking_car.booking_car_menu_root"/>
+
+        <menuitem id="booking_car_driver_cek_status_menu_item"
+                  name="Driver Status"
+                  parent="booking_car.booking_car_driver_cek_status_root_menu"
+                  action="booking_car_driver_cek_status_action"/>
+
+    </data>
+</odoo>

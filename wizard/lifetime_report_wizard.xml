@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="lifetime_report_wizard_form_view" model="ir.ui.view">
+            <field name="name">lifetime_report_wizard_form_view</field>
+            <field name="model">lifetime.report.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <footer>
+                        <button string="Confirm" type="object" class="oe_highlight"
+                                name="action_create_lifetime_report"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="lifetime_report_wizard_action" model="ir.actions.act_window">
+            <field name="name">Lifetime Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">lifetime.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="lifetime_report_wizard_form_view"/>
+            <field name="target">new</field>
+            <!-- Optional: add context to pass data to the wizard -->
+            <field name="context">{'default_your_field': active_id}</field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+
+        <record id="booking_car_conf_approval_view_tree" model="ir.ui.view">
+            <field name="name">booking_car_conf_approval_view_tree</field>
+            <field name="model">booking.car.conf.approval</field>
+            <field name="arch" type="xml">
+                <tree string="booking_car_conf_approval_tree">
+                    <field name="company_id"/>
+                    <field name="department_id"/>
+                    <field name="first_approval"/>
+                    <field name="second_approval"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="booking_car_conf_approval_view_form" model="ir.ui.view">
+            <field name="name">booking_car_conf_approval_view_form</field>
+            <field name="model">booking.car.conf.approval</field>
+            <field name="arch" type="xml">
+                <form string="booking_car_conf_approval_form">
+                    <sheet>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="department_id"/>
+                            <field name="first_approval"/>
+                            <field name="second_approval"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="booking_car_conf_approval_action" model="ir.actions.act_window">
+            <field name="name">Approval Configuration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">booking.car.conf.approval</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="booking_car_conf_approval" name="Approval"
+                  parent="booking_car.booking_car_configuration_category_menu_root"
+                  action="booking_car_conf_approval_action"
+                  sequence="2"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <record id="gab3_purchase_request_form_view_inherit" model="ir.ui.view">
+            <field name="name">gab3_purchase_request.form.inherit</field>
+            <field name="model">purchase.request</field>
+            <field name="inherit_id" ref="purchase_request.view_purchase_request_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='purchased_qty']" position="after">
+                    <field name="product_min_qty"/>
+                </xpath>
+                <xpath expr="//notebook/page/field[@name='line_ids']/tree/field[@name='estimated_cost']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//notebook/page/field[@name='line_ids']/tree/field[@name='purchase_req_budget_2']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+<!--                <xpath expr="//notebook/page/field/tree/form/sheet/group/group/field[@name='estimated_cost']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+            </field>
+        </record>
+
+        <record id="gab3_purchase_request_line_form_view_inherit" model="ir.ui.view">
+            <field name="name">gab3_purchase_request_line.form.inherit</field>
+            <field name="model">purchase.request.line</field>
+            <field name="inherit_id" ref="purchase_request.purchase_request_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='qty_cancelled']" position="after">
+                    <field name="product_min_qty"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+
+
+</odoo>

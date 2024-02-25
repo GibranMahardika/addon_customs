@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="product_classification_sub_menu"
+        name="Product Classification"
+        action="gand_product_template.product_classification_action"
+        groups=""
+        parent="equip3_sale_masterdata.products_menu"
+        sequence="10"/>
+    
+    <menuitem
+        id="product_detail_sub_menu"
+        name="Product Detail"
+        action="gand_product_template.product_classification_action"
+        groups=""
+        parent="equip3_sale_masterdata.products_menu"
+        sequence="10"/>
+
+</odoo>

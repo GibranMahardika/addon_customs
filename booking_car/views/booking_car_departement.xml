@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+
+        <record id="booking_car_users_view_form" model="ir.ui.view">
+            <field name="name">Users</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='access_rights']/group" position="after">
+                    <group string="Department">
+                        <field name="department_id"/>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="booking_car_department_view_tree" model="ir.ui.view">
+            <field name="name">booking_car_department_view_tree</field>
+            <field name="model">booking.car.department</field>
+            <field name="arch" type="xml">
+                <tree string="booking_car_department_tree">
+                    <field name="name"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="booking_car_department_view_form" model="ir.ui.view">
+            <field name="name">booking_car_department_view_form</field>
+            <field name="model">booking.car.department</field>
+            <field name="arch" type="xml">
+                <form string="booking_car_department_form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="active"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="booking_car_department_action" model="ir.actions.act_window">
+            <field name="name">Department</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">booking.car.department</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="booking_car_department_action_menu" name="Department"
+                  parent="booking_car.booking_car_configuration_category_menu_root"
+                  action="booking_car_department_action"
+                  sequence="3"/>
+
+    </data>
+</odoo>

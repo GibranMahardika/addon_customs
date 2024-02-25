@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_classification,access.product.classification,ab3_product.model_product_classification,,1,1,1,1
+access_product_detail,access.product.detail,ab3_product.model_product_detail,,1,1,1,1

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="ab3_accounting_report_invoice_inherit" inherit_id="general_template.invoice_subtotal_tem">
+        <xpath expr="//div[hasclass('clearfix')]/table[@class='pull-right']/tr[2]" position="after">
+
+            <tr>
+                <td class="left" colspan="2" t-att-style="'padding:9px 10px 7px 0px;'">PPN</td>
+                <td align="right" tyle="padding:9px 0px 7px 10px;">
+                    <span t-field="o.ppn_tax"
+                          t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="left" colspan="2" t-att-style="'padding:9px 10px 7px 0px;'">PPH</td>
+                <td align="right" tyle="padding:9px 0px 7px 10px;">
+                    <span t-field="o.pph_tax"
+                          t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                </td>
+            </tr>
+
+        </xpath>
+    </template>
+</odoo>

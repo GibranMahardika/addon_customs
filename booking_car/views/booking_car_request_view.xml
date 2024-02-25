@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="booking_car_request_view_tree" model="ir.ui.view">
+        <field name="name">booking_car_request_view_tree</field>
+        <field name="model">booking.car.request</field>
+        <field name="arch" type="xml">
+            <tree string="booking_car_request_tree">
+                <field name="name_seq"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="state"/>
+                <field name="booking_status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="booking_car_request_view_form" model="ir.ui.view">
+        <field name="name">booking_car_request_view_form</field>
+        <field name="model">booking.car.request</field>
+        <field name="arch" type="xml">
+            <form string="booking_car_request_form">
+                <header>
+                    <button id="btn_approve_1" name="button_approve_1" string="Approved 1" class="btn-primary"
+                            groups="booking_car.group_booking_approval_1"
+                            type="object" attrs="{'invisible':[('state','!=','draft')]}"/>
+
+                    <button id="btn_reject_1" name="button_reject" string="Reject" class="btn-primary"
+                            groups="booking_car.group_booking_approval_1"
+                            type="object"
+                            attrs="{'invisible':[('state','!=','draft')]}"
+                    />
+                    <!--                    attrs="{'invisible':['|',('state','in',('reject','approved')),('id','=',False)]}"-->
+
+                    <button id="btn_approve_2" name="button_approve_2" string="Approved 2" class="btn-primary"
+                            groups="booking_car.group_booking_approval_2"
+                            type="object"
+                            attrs="{'invisible':[('state','!=','approve2')]}"/>
+
+                    <button id="btn_reject_2" name="button_reject2" string="Reject"
+                            class="btn-primary"
+                            groups="booking_car.group_booking_approval_2"
+                            type="object"
+                            attrs="{'invisible':[('state','!=','approve2')]}"/>
+<!--                    attrs="{'invisible':['|',('state','in',('reject','draft','approve1')),('id','=',False)]}"-->
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,approve1,approve2,approved,reject"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name_seq" required="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Booking Request">
+                            <field name="request_date" required="1" invisible="1"/>
+                            <field name="start_date" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="end_date" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </group>
+                        <group string="Approved Person">
+                            <field name="first_approval" force_save="1"/>
+                            <field name="second_approval" force_save="1"/>
+                        </group>
+                        <group string="Booking Order">
+                            <field name="booking_status" required="0" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="booking_type" required="0" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="vehicle_category_id" required="0"
+                                   attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <!--                            <field name="vehicle_model_id" attrs="{'readonly':[('state','!=','draft')]}"/>-->
+                        </group>
+                        <group string="User Request">
+                            <field name="current_user" force_save="1"/>
+                            <field name="current_company" force_save="1"/>
+                            <field name="current_department" force_save="1"/>
+                        </group>
+                    </group>
+                    <group string="Other">
+                        <field name="area_id" required="0" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <field name="destination" required="0" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <field name="purpose_remark" required="0" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    </group>
+                    <group string="Passengers">
+                        <field name="num_of_passengers" attrs="{'readonly':[('state','!=','draft')]}" force_save="1"
+                               readonl="true"/>
+                        <!--                        <field name="seats" attrs="{'readonly':[('state','!=','draft')]}" force_save="1" readonl="true"/>-->
+                        <field name="passenger_ids" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    Action Menu     -->
+
+    <record id="booking_car_request_action" model="ir.actions.act_window">
+        <field name="name">Request</field>
+        <field name="res_model">booking.car.request</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new request
+            </p>
+        </field>
+    </record>
+
+    <!--  Menu Item  -->
+
+    <menuitem id="booking_car_menu_root"
+              name="Booking Car"
+              action="booking_car.booking_car_request_action"
+              groups="booking_car.group_booking_user,booking_car.group_booking_manager"/>
+
+    <menuitem id="booking_car_configuration_category_menu_root"
+              name="Master"
+              parent="booking_car.booking_car_menu_root"
+    />
+
+    <menuitem id="booking_car_company_action_menu"
+              name="Company"
+              parent="booking_car.booking_car_configuration_category_menu_root"
+              action="base.action_res_company_form"
+    />
+
+    <menuitem id="booking_car_partners"
+              name="Users"
+              parent="booking_car.booking_car_configuration_category_menu_root"
+              action="base.action_res_users"
+    />
+
+</odoo>

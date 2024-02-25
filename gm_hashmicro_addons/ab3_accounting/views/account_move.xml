@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <record id="ab3_account_move_form_view_inherit" model="ir.ui.view">
+            <field name="name">gab3_account_move.form.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/notebook/page[1]/group[1]/field[@name='amount_tax']" position="before">
+                    <field name="ppn_tax"/>
+                    <field name="pph_tax"/>
+                </xpath>
+
+                <xpath expr="//sheet/notebook/page[1]/group[1]/field[@name='amount_untaxed']" position="replace">
+                    <field name="amount_untaxed"/>
+                </xpath>
+                <xpath expr="//sheet/notebook/page[1]/group[1]/field[@name='amount_tax']" position="replace">
+                    <field name="amount_tax"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+
+
+</odoo>

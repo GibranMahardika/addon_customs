@@ -28,8 +28,13 @@ install/win32/meta.py
 /build/
 /dist/
 /include/
+<<<<<<< Updated upstream
 /lib/
 /man/
 /share/
 /src/
+=======
+/man/
+/share/
+>>>>>>> Stashed changes
 *.zip

@@ -1,0 +1,140 @@
+<odoo>
+    <data>
+        <!-- TRANSACTION DAILY -->
+        <record id="transaction_daily_request_view_tree" model="ir.ui.view">
+            <field name="name">transaction_daily_request_view_tree</field>
+            <field name="model">transaction.daily.request</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="td_seq" required="1"/>
+                    <field name="booking_status"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="transaction_daily_request_view_form" model="ir.ui.view">
+            <field name="name">transaction_daily_request_view_form</field>
+            <field name="model">transaction.daily.request</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="td_seq"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="Approval Info">
+                                <field name="first_approval" groups="booking_car.group_booking_user" force_save="1"/>
+                                <field name="second_approval" groups="booking_car.group_booking_user" force_save="1"/>
+                                <field name="request_sequence" force_save="1"/>
+                                <field name="start_date" force_save="1"/>
+                                <field name="end_date" force_save="1"/>
+
+                            </group>
+                            <group string="Request Info">
+                                <field name="current_user" groups="booking_car.group_booking_user" force_save="1"/>
+                                <field name="booking_status" groups="booking_car.group_booking_user" force_save="1"/>
+                                <field name="num_of_passengers" force_save="1"/>
+                                <field name="vehicle_category_id" force_save="1"/>
+                            </group>
+                            <group string="Mobil Info">
+                                <field name="model_id" domain="[('vehicle_category_id','=',vehicle_category_id)]"
+                                       id="_onchange_date_transaction"/>
+                                <field name="seats" force_save="1"/>
+                                <field name="license_plate" force_save="1" invisible="1"/>
+                            </group>
+                            <group string="Driver Info">
+                                <field name="driver_name_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- TRANSACTION CAR -->
+        <record id="transaction_car_view_tree" model="ir.ui.view">
+            <field name="name">transaction.car.view.tree</field>
+            <field name="model">transaction.car</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name_seq" required="1"/>
+                    <field name="booking_status"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="transaction_car_view_form" model="ir.ui.view">
+            <field name="name">transaction.car.view.form</field>
+            <field name="model">transaction.car</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name_seq"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="Approval Info">
+                                <field name="first_approval" groups="booking_car.group_booking_user" force_save="1"/>
+                                <field name="second_approval" groups="booking_car.group_booking_user" force_save="1"/>
+                            </group>
+                            <group string="Request Info">
+                                <field name="current_user" groups="booking_car.group_booking_user" force_save="1"/>
+                                <field name="booking_status" groups="booking_car.group_booking_user" force_save="1"/>
+                                <field name="num_of_passengers" force_save="1"/>
+                                <field name="vehicle_category_id" force_save="1"/>
+                            </group>
+                            <group string="Mobil Info">
+                                <field name="model_id"/>
+                                <field name="seats"/>
+                            </group>
+                            <group string="Driver Info">
+
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="transaction_daily_request_action" model="ir.actions.act_window">
+            <field name="name">Transaction Daily Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">transaction.daily.request</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="transaction_car_request_action" model="ir.actions.act_window">
+            <field name="name">Transaction Car</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">transaction.car</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="transaction_menu_root"
+                  name="Transaction"
+                  parent="booking_car.booking_car_menu_root"
+                  groups="booking_car.group_booking_user"/>
+
+        <menuitem id="transaction_daily_menu_item"
+                  parent="booking_car.transaction_menu_root"
+                  action="booking_car.transaction_daily_request_action"
+                  groups="booking_car.group_booking_user"
+                  sequence="3"/>
+
+        <menuitem id="transaction_car_menu_item"
+                  parent="booking_car.transaction_menu_root"
+                  action="booking_car.transaction_car_request_action"
+                  groups="booking_car.group_booking_user"
+                  sequence="1"/>
+
+    </data>
+</odoo>

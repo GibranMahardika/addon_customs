@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_purchase_exclusive_main_inherit_modifier" inherit_id="equip3_purchase_operation.report_purchase_exclusive_main_inherit">
+        
+        <xpath expr="//t/div/div[2]/div[last()]" position="after">
+            <div class="signature">
+                <t t-if="o.approval_matrix_id">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <table width="100%" style="font-size:14px;">
+                        <tr>
+                        <u></u>
+                            <td align="left" style="padding-left: 5%;" colspan="3"><u>Created By :</u></td>
+                            <td align="left" style="padding-left: 5%;" colspan="3"><u>Approved By </u>:</td>
+                        </tr>
+                        <tr>
+                            <td colspan="6"/>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 5%;" width="20%">Name</td>
+                            <td> : </td>
+                            <td><span t-field="o.create_uid"/></td>
+                            <td style="padding-left: 5%;" width="20%">Name</td>
+                            <td> : </td>
+                            <td><span><t t-esc="o.approved_matrix_ids[0].user_ids[0].name"/></span></td>
+
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 5%;" width="20%">Position</td>
+                            <td> : </td>
+                            <td><span t-field="o.create_uid.job_position"/></td>
+                            <td style="padding-left: 5%;" width="20%">Position</td>
+                            <td> : </td>
+                            <td><t t-esc="o.approved_matrix_ids[0].user_ids[0].job_position"/></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 5%;" width="20%">Created Date</td>
+                            <td> : </td>
+                            <td><span t-field="o.create_date"/></td>
+                            <td style="padding-left: 5%;" width="20%">Approval Date</td>
+                            <td> : </td>
+                            <td><span t-esc="o.approved_matrix_ids[0].time_stamp" t-options="{'widget': 'datetime'}"/></td>
+                        </tr>
+                    </table>
+                </t>
+            </div>
+        </xpath>
+        
+    </template>
+
+</odoo>

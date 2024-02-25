@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="booking_car_vehicle_vendor_action" model="ir.actions.act_window">
+            <field name="name">Vendor</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('category_id', 'in', [9])]</field>
+        </record>
+
+        <menuitem id="vehicle_vendor_action_menu" name="Vehicle Vendor"
+                  parent="fleet.fleet_configuration"
+                  action="booking_car.booking_car_vehicle_vendor_action"/>
+    </data>
+</odoo>

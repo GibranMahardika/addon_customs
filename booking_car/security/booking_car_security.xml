@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+
+        <!--    Record Rule    -->
+
+        <!--        BOOKING CAR REQUEST          -->
+
+        <record id="booking_car_record_rule_manager" model="ir.rule">
+            <field name="name">See only his Approval</field>
+            <field name="model_id" ref="model_booking_car_request"/>
+            <field name="domain_force">
+                ['|',('first_approval','=',False),('first_approval','=',user.id)]
+            </field>
+            <field name="groups" eval="[(4, ref('group_booking_manager'))]"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_create" eval="True"/>
+        </record>
+
+        <record id="booking_car_record_rule_second_manager" model="ir.rule">
+            <field name="name">See only his Approval 2</field>
+            <field name="model_id" ref="model_booking_car_request"/>
+            <field name="domain_force">
+                ['|',('second_approval','=',False),('second_approval','=',user.id)]
+            </field>
+            <field name="groups" eval="[(4, ref('group_booking_manager'))]"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_create" eval="True"/>
+        </record>
+
+        <record id="booking_car_record_rule_user" model="ir.rule">
+            <field name="name">User input</field>
+            <field name="model_id" ref="model_booking_car_request"/>
+            <field name="domain_force">
+                ['|',('current_user', '=', user.id), ('current_user', '=', False)]
+            </field>
+            <field name="groups" eval="[(4, ref('group_booking_user'))]"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_create" eval="True"/>
+        </record>
+
+        <!--        BOOKING CAR DRIVER          -->
+<!--        <record id="booking_car_record_rule_driver" model="ir.rule">-->
+<!--            <field name="name">Cek Driver</field>-->
+<!--            <field name="model_id" ref="model_booking_car_cek_status"/>-->
+<!--            <field name="groups" eval="[(4, ref('group_driver'))]"/>-->
+<!--            <field name="perm_unlink" eval="False"/>-->
+<!--            <field name="perm_write" eval="False"/>-->
+<!--            <field name="perm_read" eval="True"/>-->
+<!--            <field name="perm_create" eval="False"/>-->
+<!--        </record>-->
+
+    </data>
+</odoo>

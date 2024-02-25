@@ -1,0 +1,36 @@
+<odoo>
+
+    <!-- Membuat View Form Wizard -->
+
+    <record id="request_wizard_view_form" model="ir.ui.view">
+        <field name="name">request.wizard.form</field>
+        <field name="model">request.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Wizard Form">
+                <group>
+                    <field name="request_id" invisible="1"/>
+                    <field name="request_ids"/>
+                </group>
+                <footer>
+                    <button name="tambah_request" type="object" string="Tambah Request"
+                            confirm="Apakah Anda Yakin Mau Menambah Request ?" class="oe_highlight"/>
+                    or
+                    <button string="Batal" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Membuat Action/Event Wizard -->
+
+    <record id="request_wizard_action" model="ir.actions.act_window">
+        <field name="name">Tambah Request</field>
+        <field name="res_model">request.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_booking_car_request"/>
+        <field name="binding_view_types">form</field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_booking_car_new_booking_car_new,booking_car_new.booking_car_new,model_booking_car_new_booking_car_new,base.group_user,1,1,1,1
